@@ -1,0 +1,53 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="사용자">
+        <Preference
+            android:key="setting_userAccount"
+            android:title="사용자 계정"
+            android:id="@+id/setting_userAccount"
+            android:summary=" adasdasd@naver.com "
+            />
+        <Preference
+            android:key="setting_userNick"
+            android:id="@+id/setting_userNick"
+            android:defaultValue=""
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="닉네임 변경"
+            android:clickable="true"
+            />
+        <Preference
+            android:key="setting_userPW"
+            android:id="@+id/setting_userPW"
+            android:title="비밀번호 변경"
+            android:clickable="false"
+            />
+
+        <Preference
+            android:id="@+id/setting_synchronization"
+            android:key="setting_synchronization"
+            android:title="서버에 데이터 저장"
+            />
+
+        <Preference
+            android:id="@+id/setting_synchronization_get"
+            android:key="setting_synchronization_get"
+            android:title="서버로부터 데이터 가져오기"
+            />
+
+        <Preference
+            android:id="@+id/setting_btn_logout"
+            android:key="setting_btn_logout"
+            android:title="로그아웃"
+
+            />  <!-- dd -->
+
+        <!--<CheckBoxPreference
+            android:key="Auto_Login_enabled"
+            android:title="자동 로그인 설정"
+            android:summary="어플 실행시 자동으로 로그인"
+            />-->
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Blossom</string>
+    <string-array name="menu_list">
+        <item>프로필</item>
+        <item>새싹</item>
+        <item>측정</item>
+        <item>GPS+</item>
+        <item>기록</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve"> AIzaSyDuzMXT3TGCCO2cio2yGigl7prL5Ol-tA8 </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="testAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/default_bg</item>
+        <item name="android:colorBackground">@color/default_bg</item>
+        <item name="android:textColor">@color/textcolor</item>
+    </style>
+
+    <!-- 설정(Preference) xml을 위한 스타일 설정 필수 -->
+    <style name="PreferenceLocalTheme" parent="@style/PreferenceThemeOverlay" />
+
+</resources>
