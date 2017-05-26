@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.exam.mybatis.BlossomDAO">
+
+	<select id="userList" resultType="com.exam.mybatis.BlossomTO">
+		select a.usernumber, a.id, p.nickname, h.height, w.weight, a.registerdate
+        from useraccount a, userprofile p, userweight w, userheight h
+        where a.usernumber=p.usernumber and a.usernumber=w.usernumber and a.usernumber=h.usernumber
+	</select>
+
+	<select id="userDatas" resultType="int">
+		select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(sysdate, 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -1), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -2), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -3), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -4), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -5), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -6), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -7), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -8), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -9), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -10), 'MM')
+		union all select count(*) from USERACCOUNT where to_char(REGISTERDATE, 'MM') = to_char(add_months(sysdate, -11), 'MM')
+	</select>
+	
+	<select id="characterDatas" resultType="int">
+		select count(*) from character where clevel like 1 union all
+        select count(*) from character where clevel like 2 union all
+        select count(*) from character where clevel like 3 union all
+        select count(*) from character where clevel like 4 union all
+        select count(*) from character where clevel like 5 union all
+        select count(*) from character where clevel like 6 union all
+        select count(*) from character where clevel like 7 union all
+        select count(*) from character where clevel like 8 union all
+        select count(*) from character where clevel like 9
+    </select>    
+        
+    <select id="characterPoints" resultType="int">
+		select count(*) from character where TOTALPOINT <![CDATA[<]]> 500 and TOTALPOINT <![CDATA[>=]]> 0 union all
+        select count(*) from character where TOTALPOINT <![CDATA[<]]> 1000 and TOTALPOINT <![CDATA[>=]]> 500 union all
+        select count(*) from character where TOTALPOINT <![CDATA[<]]> 1500 and TOTALPOINT <![CDATA[>=]]> 1000 union all
+        select count(*) from character where TOTALPOINT <![CDATA[<]]> 2000 and TOTALPOINT <![CDATA[>=]]> 1500 union all
+        select count(*) from character where TOTALPOINT <![CDATA[<]]> 2500 and TOTALPOINT <![CDATA[>=]]> 2000 union all
+        select count(*) from character where TOTALPOINT <![CDATA[<]]> 3000 and TOTALPOINT <![CDATA[>=]]> 2500 union all
+        select count(*) from character where TOTALPOINT <![CDATA[>=]]> 3000
+	</select>    
+	
+	<select id="walkingDatas" resultType="int">
+		select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 0 and walknum <![CDATA[<]]> 1000 group by usernumber union all
+        select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 1000 and walknum <![CDATA[<]]> 2000 group by usernumber union all
+        select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 2000 and walknum <![CDATA[<]]> 3000 group by usernumber union all
+        select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 3000 and walknum <![CDATA[<]]> 4000 group by usernumber union all
+        select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 4000 and walknum <![CDATA[<]]> 5000 group by usernumber union all
+        select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 5000 and walknum <![CDATA[<]]> 6000 group by usernumber union all
+   		select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 6000 and walknum <![CDATA[<]]> 7000 group by usernumber union all
+   		select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 7000 and walknum <![CDATA[<]]> 8000 group by usernumber union all
+   		select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 8000 and walknum <![CDATA[<]]> 9000 group by usernumber union all
+   		select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 9000 and walknum <![CDATA[<]]> 10000 group by usernumber union all
+   		select count(avg(walknum)) from walking where walknum <![CDATA[>=]]> 10000 group by usernumber
+	</select>
+	
+	<select id="drinkingDatas" resultType="int">
+		select count(*) from drinking where tdrinking <![CDATA[>=]]> 0 and tdrinking <![CDATA[<]]> 400 union all
+        select count(*) from drinking where tdrinking <![CDATA[>=]]> 400 and tdrinking <![CDATA[<]]> 800 union all
+        select count(*) from drinking where tdrinking <![CDATA[>=]]> 800 and tdrinking <![CDATA[<]]> 1200 union all
+        select count(*) from drinking where tdrinking <![CDATA[>=]]> 1200 and tdrinking <![CDATA[<]]> 1600 union all
+        select count(*) from drinking where tdrinking <![CDATA[>=]]> 1600 and tdrinking <![CDATA[<]]> 2000 union all
+        select count(*) from drinking where tdrinking <![CDATA[>=]]> 2000 and tdrinking <![CDATA[<]]> 2400 union all
+        select count(*) from drinking where tdrinking <![CDATA[>=]]> 2400
+	</select>
+	
+	<select id="gpsDistance" resultType="com.exam.mybatis.BlossomTO">
+		select stime, tdistance from gps
+	</select>
+		
+</mapper>
