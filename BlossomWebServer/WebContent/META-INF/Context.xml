@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+      
+       <Resource
+              name="jdbc/Blossom"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="oracle.jdbc.driver.OracleDriver"
+              url="jdbc:oracle:thin:@59.10.147.53:1521:orcl"
+              username="project2"
+              password="project2"
+              maxTotal="20"
+              maxWaitMillis="5000" />
+
+</Context>
